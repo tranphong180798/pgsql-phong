@@ -18,7 +18,7 @@ use App\Http\Controllers\LoginController;
 
 Route::get('/home', [UserController::class, 'index'])->middleware('checkView');
 
-
+Route::get('/listUser',[UserController::class,'index']);
 Route::get('/', function () {
     return view('welcome');
 });

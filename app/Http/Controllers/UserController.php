@@ -11,11 +11,10 @@ use Illuminate\Support\Facades\Hash;
 
 class userController extends Controller
 {
-    public function index() {
-
-        $users= User::orderBy('id','desc')->simplePaginate(14);
-
-        return view('users.list', ['users' => $users]);
+    public function index()
+    {
+        $listUser= User::orderBy('id','desc')->get()->load('roles');
+        return $listUser;
     }
 
     public function pageAdd(Request $request)
